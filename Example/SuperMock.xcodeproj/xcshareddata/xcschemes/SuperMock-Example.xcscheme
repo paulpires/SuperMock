@@ -21,7 +21,7 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
@@ -49,6 +49,16 @@
                BlueprintIdentifier = "630ACEC51BE7E1D200D18B4E"
                BuildableName = "SuperMock_ExampleUITests.xctest"
                BlueprintName = "SuperMock_ExampleUITests"
+               ReferencedContainer = "container:SuperMock.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "607FACE41AFB9204008FA782"
+               BuildableName = "SuperMock_Tests.xctest"
+               BlueprintName = "SuperMock_Tests"
                ReferencedContainer = "container:SuperMock.xcodeproj">
             </BuildableReference>
          </TestableReference>

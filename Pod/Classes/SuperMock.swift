@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SuperMock: NSObject {
+open class SuperMock: NSObject {
     
     /**
      Begin stubbing responses to NSURLConnection / NSURLSession methods.
@@ -21,22 +21,22 @@ public class SuperMock: NSObject {
      
      - returns: void
      */
-    public class func beginMocking(bundle: NSBundle!, mocksFile: String? = "Mocks.plist") {
+    open class func beginMocking(_ bundle: Bundle!, mocksFile: String? = "Mocks.plist") {
         
-        NSURLProtocol.registerClass(SuperMockURLProtocol)
-        NSURLSessionConfiguration.defaultSessionConfiguration().protocolClasses = [SuperMockURLProtocol.self]
-        NSURLSession.sharedSession().configuration.protocolClasses?.append(SuperMockURLProtocol)
+        URLProtocol.registerClass(SuperMockURLProtocol)
+        URLSessionConfiguration.default.protocolClasses = [SuperMockURLProtocol.self]
+        URLSession.shared.configuration.protocolClasses?.append(SuperMockURLProtocol)
         
         SuperMockResponseHelper.mocksFileName  = mocksFile
         SuperMockResponseHelper.bundleForMocks = bundle
         SuperMockResponseHelper.sharedHelper.mocking = true
     }
     
-    public class func beginRecording(bundle: NSBundle?, mocksFile: String? = "Mocks.plist", policy: RecordPolicy) {
+    open class func beginRecording(_ bundle: Bundle?, mocksFile: String? = "Mocks.plist", policy: RecordPolicy) {
         
-        NSURLProtocol.registerClass(SuperMockRecordingURLProtocol)
-        NSURLSessionConfiguration.defaultSessionConfiguration().protocolClasses = [SuperMockRecordingURLProtocol.self]
-        NSURLSession.sharedSession().configuration.protocolClasses?.append(SuperMockRecordingURLProtocol)
+        URLProtocol.registerClass(SuperMockRecordingURLProtocol)
+        URLSessionConfiguration.default.protocolClasses = [SuperMockRecordingURLProtocol.self]
+        URLSession.shared.configuration.protocolClasses?.append(SuperMockRecordingURLProtocol)
         
         SuperMockResponseHelper.mocksFileName  = mocksFile
         SuperMockResponseHelper.bundleForMocks = bundle
@@ -44,8 +44,8 @@ public class SuperMock: NSObject {
         SuperMockResponseHelper.sharedHelper.recordPolicy = policy
     }
     
-    public class func endRecording() {
-        NSURLProtocol.unregisterClass(SuperMockRecordingURLProtocol)
+    open class func endRecording() {
+        URLProtocol.unregisterClass(SuperMockRecordingURLProtocol)
         SuperMockResponseHelper.sharedHelper.recording = false
     }
     
@@ -54,8 +54,8 @@ public class SuperMock: NSObject {
      
      - returns: void
      */
-    public class func endMocking() {
-        NSURLProtocol.unregisterClass(SuperMockURLProtocol)
+    open class func endMocking() {
+        URLProtocol.unregisterClass(SuperMockURLProtocol)
     }
 
 }
